@@ -50,4 +50,30 @@ function gisea_prototype_scripts_style(){
 }
 //Este hook quiere decir que va a cargar hojas de estilo en la parte frontal de la web
 add_action('wp_enqueue_scripts','gisea_prototype_scripts_style');
+
+
+//WIDGETS
+
+function gisea_prototype_widgets(){
+    //El widget se registra con esta función porque nunca se le cambió el nombre
+    register_sidebar(array(
+        'name' => 'Sidebar 1',//Nombre que se verá en el panel de administración
+        'id' => 'sidebar_1',//la manera en la que Wordpress reconoce el widget
+        'before_widget' => '<div class="widget">',//Contenido que vendrá antes del widget
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="text-center texto-primario">',
+        'after_title' => '</h3>'
+    ));
+
+    register_sidebar(array(
+        'name' => 'Sidebar 2',//Nombre que se verá en el panel de administración
+        'id' => 'sidebar_2',//la manera en la que Wordpress reconoce el widget
+        'before_widget' => '<div class="widget">',//Contenido que vendrá antes del widget
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="text-center texto-primario">',
+        'after_title' => '</h3>'
+    ));
+}
+add_action('widgets_init','gisea_prototype_widgets');
+
 ?>
