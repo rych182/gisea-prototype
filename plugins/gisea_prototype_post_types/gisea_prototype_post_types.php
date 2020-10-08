@@ -118,6 +118,7 @@ function gisea_clases_post_type() {
 		'publicly_queryable'    => true,
 		'capability_type'       => 'page',
 	);
+	//este es el slug
 	register_post_type( 'gisea_clases', $args );
 
 }
