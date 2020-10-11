@@ -363,16 +363,33 @@ la tome del inspector de elementos del navegador*/
 
 /*------------CLASES---------------*/
 
-.lista-clases {
+.lista-clases,
+.listado-blog {
     margin-top: 4rem;
 }
 
 @media (min-width: 768px) {
-    .lista-clases {
+    .lista-clases,
+    .listado-blog {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
     }
+}
+
+.listado-blog .card .contenido {
+    padding: 0 2rem 2rem 2rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .listado-blog .card .contenido {
+        text-align: left;
+    }
+}
+
+.listado-blog .card h3 {
+    margin: 0;
 }
 
 
@@ -400,7 +417,14 @@ la tome del inspector de elementos del navegador*/
 }
 
 .card {
+    /*Para que tengan una linea gris como separador*/
     margin-bottom: 4rem;
+    border-bottom: solid 1px var(--grisClaro);
+}
+
+.card:last-of-type {
+    /*para que el último post no tenga la linea gris*/
+    border: none;
 }
 
 @media (min-width: 768px) {
@@ -415,7 +439,7 @@ la tome del inspector de elementos del navegador*/
 }
 
 .card .contenido {
-    padding: 3rem;
+    padding: 2rem;
 }
 
 @media (min-width: 768px) {
@@ -449,6 +473,70 @@ la tome del inspector de elementos del navegador*/
     .card .contenido p {
         color: var(--colorPrimario);
     }
+}
+
+.card .contenido .meta,
+.card .contenido .meta a {
+    color: var(--black);
+}
+
+@media (min-width: 768px) {
+    .card .contenido .meta,
+    .card .contenido .meta a {
+        color: var(--blanco);
+    }
+}
+
+.card .contenido .meta span {
+    color: var(--colorPrimario);
+}
+
+.card .contenido .meta {
+    font-size: 1.4rem;
+}
+
+.post-categories {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .post-categories {
+        /*Esta clase la genero Wordpress al haber usado the_category(); en home.php*/
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        z-index: 10;
+        display: flex;
+    }
+}
+
+.post-categories li {
+    padding: .5rem 2rem;
+    margin-right: 2rem;
+    border-radius: .5rem;
+}
+
+@media (min-width: 768px) {
+    .post-categories li {
+        background-color: var(--colorPrimario);
+    }
+}
+
+.post-categories li a {
+    font-size: 2.2rem;
+    font-family: var(--fuentePrincipal);
+    color: var(--grisOscuro);
+}
+
+@media (min-width: 768px) {
+    .post-categories li a {
+        color: var(--blanco);
+    }
+}
+
+.post-categories li:last-of-type {
+    margin-right: 0;
 }
 
 
@@ -487,4 +575,50 @@ la tome del inspector de elementos del navegador*/
     margin: 0;
     font-weight: 700;
     font-size: 1.4rem;
+}
+
+
+/*------GALERIA-------*/
+
+.galeria-imagenes {
+    display: grid;
+    /* es como tener 50% 50%, fr significa una fraccion
+    repeat(2, 1fr); = 50 50 , repeat(4, 1fr); = 25 25 25 25*/
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, auto);
+    grid-gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .galeria-imagenes {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.galeria-imagenes img {
+    display: block;
+}
+
+.galeria-imagenes li:nth-child(4) {
+    /*selecciono el elemento 4 y que utilice el espacio de la fila 2 a la 4*/
+    grid-row: 2/4;
+    grid-column: 2/3;
+}
+
+@media (min-width: 768px) {
+    .galeria-imagenes li:nth-child(4) {
+        grid-column: 4/5;
+        grid-row: 1/3;
+    }
+}
+
+.galeria-imagenes li:nth-child(6) {
+    grid-row: 5/7;
+}
+
+@media (min-width: 768px) {
+    .galeria-imagenes li:nth-child(6) {
+        grid-column: 2/3;
+        grid-row: 2/4;
+    }
 }
