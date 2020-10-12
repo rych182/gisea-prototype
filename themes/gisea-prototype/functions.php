@@ -9,6 +9,10 @@ require get_template_directory() . '/inc/queries.php';
 function gisea_prototype_setup(){
     //Habilitar imágenes destacadas
     add_theme_support('post-thumbnails');
+
+    //Titulos SEO de las pestañas
+    add_theme_support('title-tag');
+
     //Agregar imagenes de tamaño distinto
     add_image_size('square',350,350,true);
     add_image_size('portrait',350,724,true);
