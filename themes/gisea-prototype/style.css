@@ -231,6 +231,13 @@ la tome del inspector de elementos del navegador*/
 
 /*---------REESCRIBIR MENÚ MOVIL----------------*/
 
+
+/* Para quitar una barra gris que estorba en mobile y no deja ver la imagen de fondo*/
+
+body.home .slicknav_menu {
+    background-color: transparent;
+}
+
 .slicknav_menu {
     background-color: var(--grisOscuro);
     /*En caso de que quieras centrar el menu o ponerlo ala izquierda modifica align-items*/
@@ -691,4 +698,11 @@ div.wpcf7 .ajax-loader {
 div.wpcf7-mail-sent-ok {
     background-color: #398f14;
     color: var(--blanco);
+}
+
+
+/*---------------MAPA---------------------*/
+
+#mapa {
+    height: 350px;
 }
