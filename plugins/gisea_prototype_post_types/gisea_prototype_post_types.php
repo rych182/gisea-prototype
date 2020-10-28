@@ -123,3 +123,60 @@ function gisea_clases_post_type() {
 
 }
 add_action( 'init', 'gisea_clases_post_type', 0 );
+
+
+// Register Custom Post Type
+function gisea_instructores() {
+
+	$labels = array(
+		'name'                  => _x( 'Instructores', 'Post Type General Name', 'giseaPrototype' ),
+		'singular_name'         => _x( 'Instructor', 'Post Type Singular Name', 'giseaPrototype' ),
+		'menu_name'             => __( 'Instructores', 'giseaPrototype' ),
+		'name_admin_bar'        => __( 'Instructor', 'giseaPrototype' ),
+		'archives'              => __( 'Archivo', 'giseaPrototype' ),
+		'attributes'            => __( 'Atributos', 'giseaPrototype' ),
+		'parent_item_colon'     => __( 'Instructor Padre', 'giseaPrototype' ),
+		'all_items'             => __( 'Todas Las Instructores', 'giseaPrototype' ),
+		'add_new_item'          => __( 'Agregar Instructor', 'giseaPrototype' ),
+		'add_new'               => __( 'Agregar Instructor', 'giseaPrototype' ),
+		'new_item'              => __( 'Nueva Instructor', 'giseaPrototype' ),
+		'edit_item'             => __( 'Editar Instructor', 'giseaPrototype' ),
+		'update_item'           => __( 'Actualizar Instructor', 'giseaPrototype' ),
+		'view_item'             => __( 'Ver Instructor', 'giseaPrototype' ),
+		'view_items'            => __( 'Ver Instructores', 'giseaPrototype' ),
+		'search_items'          => __( 'Buscar Instructor', 'giseaPrototype' ),
+		'not_found'             => __( 'No Encontrado', 'giseaPrototype' ),
+		'not_found_in_trash'    => __( 'No Encontrado en Papelera', 'giseaPrototype' ),
+		'featured_image'        => __( 'Imagen Destacada', 'giseaPrototype' ),
+		'set_featured_image'    => __( 'Guardar Imagen destacada', 'giseaPrototype' ),
+		'remove_featured_image' => __( 'Eliminar Imagen destacada', 'giseaPrototype' ),
+		'use_featured_image'    => __( 'Utilizar como Imagen Destacada', 'giseaPrototype' ),
+		'insert_into_item'      => __( 'Insertar en Instructor', 'giseaPrototype' ),
+		'uploaded_to_this_item' => __( 'Agregado en Instructor', 'giseaPrototype' ),
+		'items_list'            => __( 'Lista de Instructores', 'giseaPrototype' ),
+		'items_list_navigation' => __( 'Navegación de Instructores', 'giseaPrototype' ),
+		'filter_items_list'     => __( 'Filtrar Instructores', 'giseaPrototype' ),
+	);
+	$args = array(
+		'label'                 => __( 'Instructores', 'giseaPrototype' ),
+		'description'           => __( 'Instructores para el Sitio Web', 'giseaPrototype' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+        'menu_position'         => 7,
+        'menu_icon'             => 'dashicons-admin-users',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => false,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'instructores', $args );
+
+}
+add_action( 'init', 'gisea_instructores', 0 );

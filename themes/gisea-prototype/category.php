@@ -11,7 +11,10 @@
         <h2 class="text-center texto-primario">Categoria: <?php echo $categoria->name; ?></h2>
 
         <ul class="listado-blog">
-            <?php get_template_part('template-parts/loop','blog'); ?>
+        <!--Con este loop utilizamos el esqueleto de loop-blog.php-->
+            <?php while (have_posts()): the_post();?>
+                <?php get_template_part('template-parts/loop','blog'); ?>
+            <?php endwhile; ?>
         </ul>
     </main>
 

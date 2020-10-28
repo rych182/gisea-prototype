@@ -5,7 +5,15 @@ jQuery(document).ready(function($) {
         appendTo: ".site-header"
     });
 
+    //Agregar Slider
+    $('.listado-testimoniales').bxSlider({
+        auto: true,
+        mode: 'fade',
+        controls: false
+    });
+
     //El pinshi mapa
+    /*
     const lat = document.querySelector('#lat').value;
     const lng = document.querySelector('#lng').value;
     const direccion = document.querySelector('#direccion').value;
@@ -21,5 +29,19 @@ jQuery(document).ready(function($) {
             .bindPopup(direccion)
             .openPopup();
     }
+    */
+
+    window.onscroll = () => {
+        const scroll = window.scrollY; //detecta scroll y lo almacena
+        const headerNav = document.querySelector('.barra-navegacion');
+        //si la cantidad de scroll es mayor a, agrega la clase, si es menor, se remueve
+        if (scroll > 300) {
+            headerNav.classList.add('fixed-top');
+        } else {
+            headerNav.classList.remove('fixed-top');
+        }
+    }
+
+
 
 });

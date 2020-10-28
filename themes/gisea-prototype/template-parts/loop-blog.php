@@ -1,4 +1,4 @@
-<?php while (have_posts()): the_post();?>
+<!--Template blog-->
                 <li class="card gradient">
                     
                     <?php the_post_thumbnail('mediano'); ?>
@@ -22,4 +22,4 @@
                         </p>
                     </div>
                 </li>
-            <?php endwhile; ?>
+            

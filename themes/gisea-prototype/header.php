@@ -10,9 +10,9 @@
     <header class="site-header">
         <div class="contenedor">
             <div class="barra-navegacion">
-                <div class="logo">
+                <a href="<?php echo esc_url(site_url('/')); ?>"> <!--Nos lleva a la página principar-->
                     <img src="<?php echo get_template_directory_uri();?>/img/logo.svg" alt="logo sitio">
-                </div>
+                </a>
 
                 <?php
                     $args = array(

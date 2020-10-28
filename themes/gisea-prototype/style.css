@@ -127,8 +127,49 @@ hr {
     color: var(--colorPrimario);
 }
 
+.texto-blanco {
+    color: var(--blanco);
+}
+
 .seccion {
     padding: 5rem 0;
+}
+
+
+/*Para que el boton este alineado a la derecha*/
+
+.contenedor-boton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/*BOTON*/
+
+.boton {
+    background-color: var(--blanco);
+    color: var(--black);
+    padding: 1rem 3rem;
+    display: block;
+    /*Esto va a ser que el boton crezca en un dispositivo pequeño*/
+    flex: 1;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: .5rem;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        /*para que el flex:1 no afecte en dispositivo de escritorio*/
+        display: inline-block;
+        flex: 0 0 auto;
+    }
+}
+
+.boton-primario {
+    background-color: var(--colorPrimario);
+    color: var(--blanco);
 }
 
 
@@ -176,6 +217,26 @@ body.home .site-header {
     .barra-navegacion {
         display: flex;
         justify-content: space-between;
+    }
+}
+
+
+/*-------BARRA DE NAVEGACIÓN-------*/
+
+@media (min-width: 768px) {
+    .fixed-top {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: var(--grisOscuro);
+        padding: 1rem 5rem;
+        height: 10rem;
+        z-index: 100;
+        transition: all .8s ease;
+    }
+    .fixed-top img {
+        width: 12rem;
     }
 }
 
@@ -477,6 +538,8 @@ body.home .slicknav_menu {
     /*Para que tengan una linea gris como separador*/
     margin-bottom: 4rem;
     border-bottom: solid 1px var(--grisClaro);
+    /*para que cuando la imagen crezca no se salga del card*/
+    overflow: hidden;
 }
 
 .card:last-of-type {
@@ -493,6 +556,11 @@ body.home .slicknav_menu {
 
 .card img {
     display: block;
+    transition: transform .5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
 }
 
 .card .contenido {
@@ -757,10 +825,225 @@ div.wpcf7-mail-sent-ok {
     height: 350px;
 }
 
+
 /*------------FRONT PAGE-----------------*/
-                    
-                    .bienvenida p {
-                        max-width: 800px;
-                        margin: 0 auto;
-                        /*Para centrar el texto del parrafo*/
-                    }
+
+.bienvenida p {
+    max-width: 800px;
+    margin: 0 auto;
+    /*Para centrar el texto del parrafo*/
+}
+
+.contenedor-areas {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contenedor-areas .area {
+    flex: 0 0 100%;
+    height: 250px;
+    /*Para que las imagenes no sean más grandes que el degradado negro en el responsive*/
+    overflow: hidden;
+    /*puse position relative para que abajo pueda encimar el degradado negro con position absolute*/
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 480px) {
+    .contenedor-areas .area {
+        flex: 0 0 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    .contenedor-areas .area {
+        flex: 0 0 25%;
+        height: 300px;
+    }
+}
+
+.contenedor-areas .area img {
+    height: 300px;
+    /*para que se vea bien cuando se va haciendo más chica la imagen con el cover*/
+    object-fit: cover;
+}
+
+.contenedor-areas .area::after {
+    content: '';
+    background: linear-gradient( rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+    display: block;
+    width: 100%;
+    height: 100%;
+    /*para que el degradado se encime sobre las imagenes*/
+    position: absolute;
+    top: 0;
+}
+
+.area p {
+    position: absolute;
+    margin: auto;
+    color: var(--blanco);
+    font-size: 2rem;
+    font-weight: 900;
+    z-index: 100;
+}
+
+@media (min-width: 768px) {
+    .area p {
+        opacity: 0;
+        transition: opacity .5s ease-in-out;
+    }
+    .area:hover p {
+        opacity: 1;
+    }
+}
+
+.clases {
+    background-color: var(--grisClaro);
+}
+
+
+/*--------Instructores------------*/
+
+.listado-instructores li {
+    margin: 2rem 0;
+    border-bottom: 1px solid var(--grisClaro);
+}
+
+@media (min-width: 768px) {
+    .listado-instructores {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .listado-instructores li {
+        flex: 0 0 calc(50% - 2rem);
+        border-bottom: none;
+        /*para que en el responsive pongas position absolute para  que el texto este por encima de la imagen*/
+        position: relative;
+    }
+}
+
+.instructor img {
+    display: block;
+    height: 400px;
+    object-fit: cover;
+}
+
+.instructor .contenido {
+    padding: 3rem;
+}
+
+@media (min-width: 768px) {
+    .instructor .contenido {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.75);
+        color: var(--blanco);
+        /*para que el texto este centrado*/
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        opacity: 0;
+        transition: .5s ease-in-out;
+    }
+    .instructor:hover .contenido {
+        opacity: 1;
+    }
+}
+
+.etiqueta {
+    margin-right: 2rem;
+    background-color: var(--colorPrimario);
+    color: var(--blanco);
+    font-family: var(--fuentePrincipal);
+    font-size: 2.2rem;
+    padding: .5rem 2rem;
+    border-radius: .5rem;
+}
+
+.etiqueta:last-of-type {
+    margin-right: 0;
+}
+
+
+/*--------TESTIMONIALES--------*/
+
+.testimoniales {
+    background: linear-gradient( rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(img/testimonial-bg.jpg);
+    padding: 12rem 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.contenedor-testimoniales {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonial {
+    color: var(--blanco);
+}
+
+.testimonial blockquote {
+    position: relative;
+    padding-left: 12rem;
+}
+
+.testimonial blockquote::before {
+    position: absolute;
+    content: '';
+    display: block;
+    top: 0;
+    left: 0;
+    width: 10rem;
+    height: 9rem;
+    background-image: url(img/quote.svg);
+    background-repeat: no-repeat;
+}
+
+.testimonial-footer {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width:768px) {
+    .testimonial-footer {
+        justify-content: flex-end;
+    }
+}
+
+.testimonial-footer img {
+    margin-right: 2rem;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+}
+
+.testimonial-footer p {
+    font-weight: 700;
+    color: var(--colorPrimario);
+}
+
+
+/*----REESCRIBIT BXSlider--------*/
+
+.bx-wrapper {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a,
+.bx-wrapper .bx-pager.bx-default-pager a:hover {
+    background: var(--blanco);
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a.active {
+    background: var(--colorPrimario);
+}

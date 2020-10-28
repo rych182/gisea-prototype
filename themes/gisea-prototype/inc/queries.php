@@ -1,5 +1,6 @@
 <?php
-function gisea_prototype_clases(){ ?>
+// $cantidad = -1 es para que muestre todas las clases que hay en el gym
+function gisea_prototype_clases($cantidad = -1){ ?>
     <ul class="lista-clases">
     <!--Haciendo una consulta a la base de datos para traer los resultados que traemos en nuestro Custom Post type
     el nombre del post type lo encuentras en gisea_prototype_post_types.php y en la parte donde dice register_post_type( 'gisea_clases', $args );
@@ -11,7 +12,7 @@ function gisea_prototype_clases(){ ?>
                 'post_type' => 'gisea_clases',
                 //El número de páginas que queremos mostrar
                 //Por default se ordenan de manera descendente y por fecha, osea que te muestra los últimos en haber sido creados
-                'posts_per_page' => 10
+                'posts_per_page' => $cantidad
             );
             $clases = new WP_Query($args);
             while ($clases ->have_posts() ): $clases->the_post();?> 

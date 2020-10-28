@@ -47,11 +47,11 @@ function gisea_prototype_scripts_style(){
     
     wp_enqueue_style('leafletCSS', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css',array(),'1.7.1');
 
+    wp_enqueue_style('bxSliderCSS', 'https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css',array(),'4.2.12');
     # HOJA DE ESTILOS PRINCIPAL
     # el array() vacio es donde van las dependencias y se deja vacio cuando no las haya
     # Es importante poner una version ya que si instalas un plugin de cache y haces modificaciones, con que le pongas 1.0.1, te mostrara las modificaciones
     wp_enqueue_style('style',get_stylesheet_uri(),array('normalize','googleFont'),'1.0.0');
-
 
     //Así se cargan archivos JavaScript
     wp_enqueue_script('queryslicknav',get_template_directory_uri() . '/js/jquery.slicknav.min.js',array('jquery'),'1.0.0',true);
@@ -59,6 +59,7 @@ function gisea_prototype_scripts_style(){
     
     wp_enqueue_script('lightboxJS',get_template_directory_uri() . '/js/lightbox.min.js',array('jquery'),'2.11.3',true); 
     wp_enqueue_script('leafletJS','https://unpkg.com/leaflet@1.7.1/dist/leaflet.js',array(),'1.7.1',true);   
+    wp_enqueue_script('bxSliderJS','https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js',array('jquery'),'4.2.12',true);   
     
 }
 //Este hook quiere decir que va a cargar hojas de estilo en la parte frontal de la web
